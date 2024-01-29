@@ -20,16 +20,16 @@ public class Customer {
     public Customer() {}
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_id", referencedColumnName = "cardId")
+    @JoinColumn(name = "cardId", referencedColumnName = "cardId")
     private Card card;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "addressId")
+    @JoinColumn(name = "addressId", referencedColumnName = "addressId")
     private Address address;
     
     
     
-    public Customer(Long customerId, String firstName, String lastName, String email, date dateOfBirth, String password) {
+    public Customer(Long customerId, String firstName, String lastName, String email, Date dateOfBirth, String password) {
         super();
         this.customerId = customerId;
         this.firstName = firstName;
