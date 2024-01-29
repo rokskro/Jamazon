@@ -6,10 +6,10 @@ public enum OrderStatus {
 	TRANSIT("Order In Transit"), 
 	DELIVERED("Order Successfully Delivered");
 
-	String deliverlyStatus;
+	String deliveryStatus;
 	
 	OrderStatus(String deliveryStatus) {
-		this.deliverlyStatus = deliveryStatus;
+		this.deliveryStatus = deliveryStatus;
 	}
 	
 }
