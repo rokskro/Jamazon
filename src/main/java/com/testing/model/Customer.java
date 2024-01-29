@@ -20,11 +20,11 @@ public class Customer {
     public Customer() {}
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_id", referencedColumnName = "cardId")
+    @JoinColumn(name = "cardId", referencedColumnName = "cardId")
     private Card card;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "addressId")
+    @JoinColumn(name = "addressId", referencedColumnName = "addressId")
     private Address address;
     
     
