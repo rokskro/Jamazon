@@ -1,8 +1,13 @@
 package com.testing.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 import java.util.Date;
 
 @Entity
@@ -16,12 +21,13 @@ public class Customer {
     private String email;
     private Date dateOfBirth;
     private String password;
+    SignOfTheStars starSign;
 
     public Customer() {}
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "card_id", referencedColumnName = "cardId")
-    private Card card;
+    private CustomerCard card;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "addressId")
@@ -29,7 +35,7 @@ public class Customer {
     
     
     
-    public Customer(Long customerId, String firstName, String lastName, String email, date dateOfBirth, String password) {
+    public Customer(Long customerId, String firstName, String lastName, String email, Date dateOfBirth, String password, SignOfTheStars starSign) {
         super();
         this.customerId = customerId;
         this.firstName = firstName;
@@ -37,9 +43,10 @@ public class Customer {
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.password = password;
+        this.starSign = starSign;
     }
     public Long getCustomerId() {
-        return adminId;
+        return customerId;
     }
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
@@ -65,7 +72,7 @@ public class Customer {
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
-    public void setDateOfBirth(Date DateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
     public String getPassword() {
@@ -73,6 +80,12 @@ public class Customer {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public SignOfTheStars getStarSign() {
+        return starSign;
+    }
+    public void setStarSign(SignOfTheStars starSign) {
+        this.starSign = starSign;
     }
   
 }
