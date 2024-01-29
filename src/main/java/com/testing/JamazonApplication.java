@@ -12,6 +12,7 @@ public class JamazonApplication {
 		System.out.println("Jamazonay");
 		System.out.println("Let's gooooo");
 		System.out.println("Testing Eclipse push");
+		System.out.println("oh god please work");
 	}
 
 }
