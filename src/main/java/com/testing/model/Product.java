@@ -12,9 +12,12 @@ public class Product {
 
 
     public Product() {
+        super();
+        //TODO Auto-Generated Constructor stub
     }
 
     public Product(Long productId, String productName, double value, String description, String image, int quantity, ProductCategory productCategory) {
+        super();
         this.productId = productId;
         this.productName = productName;
         this.value = value;
