@@ -1,8 +1,6 @@
 package com.testing.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,12 +14,14 @@ public class Customer {
     private String email;
     private Date dateOfBirth;
     private String password;
+    private String starsign;
+    
 
     public Customer() {}
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cardId", referencedColumnName = "cardId")
-    private Card card;
+    private CustomerCard card;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressId", referencedColumnName = "addressId")
@@ -73,6 +73,12 @@ public class Customer {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getStarsign() {
+        return starsign;
+    }
+    public void setStarsign(String starsign) {
+        this.starsign = starsign;
     }
   
 }
