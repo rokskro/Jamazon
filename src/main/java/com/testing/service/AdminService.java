@@ -1,5 +1,6 @@
 package com.testing.service;
 import com.testing.model.Product;
+import com.testing.repo.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -7,9 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class AdminService {
 
     @Autowired
-    private ProductRepository repo;
+    private ProductRepository productRepo;
 
-    //public Product addProduct(){
+    @Autowired
+    private OrderRepository orderRepo;
+
+    //Product methods
+
+    public Product addProduct(Product product){
+        return product.save(product);
+    }
     public void deleteProduct(){}
 
 
