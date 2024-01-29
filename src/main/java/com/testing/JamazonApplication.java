@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JamazonApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Jamazon");
+		System.out.println("Jamazon please");
+		System.out.println("test message");
 	}
 
 }
