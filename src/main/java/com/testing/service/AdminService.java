@@ -1,13 +1,18 @@
 package com.testing.service;
-import java.util.*;
+import com.testing.model.Product;
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
-//@Service
+@Service
 public class AdminService {
 
-    /*
     @Autowired
     private ProductRepository repo;
-     */
+
+    //public Product addProduct(){
+    public void deleteProduct(){}
+
+
 
 
 
