@@ -9,8 +9,7 @@ public class AdminService {
     @Autowired
     private ProductRepository repo;
 
-    public Product addProduct(){
-    }
+    //public Product addProduct(){
     public void deleteProduct(){}
 
 
