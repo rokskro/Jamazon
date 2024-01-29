@@ -14,6 +14,8 @@ public class Customer {
     private String email;
     private Date dateOfBirth;
     private String password;
+    private String starsign;
+    
 
     public Customer() {}
     
@@ -71,6 +73,12 @@ public class Customer {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getStarsign() {
+        return starsign;
+    }
+    public void setStarsign(String starsign) {
+        this.starsign = starsign;
     }
   
 }
