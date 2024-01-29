@@ -29,7 +29,7 @@ public class Customer {
     
     
     
-    public Customer(Long customerId, String firstName, String lastName, String email, date dateOfBirth, String password) {
+    public Customer(Long customerId, String firstName, String lastName, String email, Date dateOfBirth, String password) {
         super();
         this.customerId = customerId;
         this.firstName = firstName;
