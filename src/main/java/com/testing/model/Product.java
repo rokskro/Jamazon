@@ -8,16 +8,20 @@ public class Product {
     String image;
     int quantity;
 
+    ProductCategory productCategory;
+
+
     public Product() {
     }
 
-    public Product(Long productId, String productName, double value, String description, String image, int quantity) {
+    public Product(Long productId, String productName, double value, String description, String image, int quantity, ProductCategory productCategory) {
         this.productId = productId;
         this.productName = productName;
         this.value = value;
         this.description = description;
         this.image = image;
         this.quantity = quantity;
+        this.productCategory = productCategory;
     }
 
     public Long getProductId() {
@@ -66,5 +70,13 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 }
