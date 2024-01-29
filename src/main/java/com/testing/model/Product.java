@@ -1,6 +1,10 @@
 package com.testing.model;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Product {
+    @Id
     Long productId;
     String productName;
     double value;
