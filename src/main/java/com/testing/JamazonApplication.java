@@ -10,6 +10,7 @@ public class JamazonApplication {
 		System.out.println("test message");
 		System.out.println("Test message 2");
 		System.out.println("Jamazonay");
+		System.out.println("Let's gooooo");
 	}
 
 }
