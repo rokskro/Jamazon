@@ -1,7 +1,7 @@
 package com.testing.service;
 
-import com.testing.model.pojos.Product;
 import com.testing.repo.*;
+import com.testing.model.pojos.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -47,7 +47,6 @@ public class AdminService {
         customerRepo.deleteById(customerId);
     }
 
-    /*
     public Customer editCustomer(Customer customer){
         Customer editedCustomer = customerRepo.findById(customer.getCustomerId())
                 .orElseThrow(() -> new IllegalArgumentException("Product not found"));
@@ -62,7 +61,6 @@ public class AdminService {
 
         return customerRepo.save(editedCustomer);
     }
-     */
 
 
 
