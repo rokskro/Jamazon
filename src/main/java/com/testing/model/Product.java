@@ -1,6 +1,6 @@
 package com.testing.model;
-import com.testing.model.enums.ProductCategory;
 
+import com.testing.model.enums.ProductCategory;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
