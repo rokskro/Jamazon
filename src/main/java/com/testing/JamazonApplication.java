@@ -15,7 +15,7 @@ public class JamazonApplication {
 		System.out.println("oh god please work");
 
 		System.out.println("30/1/2024 start ");
-		System.out.println("14:32");
+		System.out.println("14:30");
 
 	}
 
