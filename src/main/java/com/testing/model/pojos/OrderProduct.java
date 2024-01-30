@@ -1,4 +1,7 @@
-package com.testing.model;
+package com.testing.model.pojos;
+
+import com.testing.model.pojos.Order;
+import com.testing.model.pojos.Product;
 
 import javax.persistence.*;
 
