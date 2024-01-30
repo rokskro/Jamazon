@@ -1,4 +1,4 @@
-package com.testing.model;
+package com.testing.model.enums;
 
 public enum OrderStatus {
 	
@@ -10,6 +10,10 @@ public enum OrderStatus {
 	
 	OrderStatus(String deliveryStatus) {
 		this.deliveryStatus = deliveryStatus;
+	}
+	
+	public String getOrderStatus() {
+		return deliveryStatus;
 	}
 	
 }

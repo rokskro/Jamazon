@@ -1,6 +1,8 @@
-package com.testing.model;
+package com.testing.model.pojos;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import com.testing.model.enums.ProductCategory;
 
 @Entity
 public class Product {

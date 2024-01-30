@@ -1,4 +1,4 @@
-package com.testing.model;
+package com.testing.model.enums;
 
 public enum CardType {
 	
@@ -10,6 +10,10 @@ public enum CardType {
 	
 	CardType(String paymentType) {
 		this.paymentType = paymentType;
+	}
+	
+	public String getCardType() {
+		return paymentType;
 	}
 	
 	

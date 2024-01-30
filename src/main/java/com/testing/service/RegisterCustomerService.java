@@ -2,7 +2,7 @@ package com.testing.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.testing.dto.RegisterCustomerDto;
-import com.testing.model.Customer;
+import com.testing.model.pojos.Customer;
 import com.testing.repo.CustomerRepository;
 import jdk.internal.org.jline.terminal.TerminalBuilder;
 import org.springframework.beans.factory.annotation.Autowired;

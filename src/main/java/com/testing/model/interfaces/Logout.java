@@ -1,4 +1,4 @@
-package com.testing.model;
+package com.testing.model.interfaces;
 
 //@FunctionalInterface
 public interface Logout {

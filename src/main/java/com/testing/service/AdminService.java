@@ -1,5 +1,5 @@
 package com.testing.service;
-import com.testing.model.Product;
+import com.testing.model.pojos.Product;
 import com.testing.repo.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;

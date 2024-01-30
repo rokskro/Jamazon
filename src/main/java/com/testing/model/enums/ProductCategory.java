@@ -1,4 +1,4 @@
-package com.testing.model;
+package com.testing.model.enums;
 
 public enum ProductCategory {
 	
@@ -12,6 +12,9 @@ public enum ProductCategory {
 		this.category = category;
 	}
 	
+	public String getCategory() {
+		return category;
+	}
 	
 	
 }
