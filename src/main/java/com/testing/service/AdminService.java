@@ -58,7 +58,6 @@ public class AdminService {
         editedCustomer.setDateOfBirth(customer.getDateOfBirth());
         editedCustomer.setStarSign(customer.getStarSign());
 
-
         return customerRepo.save(editedCustomer);
     }
 
