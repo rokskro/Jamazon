@@ -1,5 +1,7 @@
 package com.testing.service;
 import com.testing.model.*;
+import com.testing.model.Product;
+import com.testing.model.pojos.Customer;
 import com.testing.repo.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class AdminService {
 
     //checker
+    //please fucking work
 
     @Autowired
     private ProductRepository productRepo;
@@ -20,14 +23,15 @@ public class AdminService {
 
     //Product methods
 
-    public Product addProduct(Product product){
+    /*public Product addProduct(Product product){
         return productRepo.save(product);
     }
-
+     */
     public void deleteProduct(Long productId){
         productRepo.deleteById(productId);
     }
 
+    /*
     public Product editProduct(Product product){
         Product editedProduct = productRepo.findById(product.getProductId())
                 .orElseThrow(() -> new IllegalArgumentException("Product not found"));
@@ -41,6 +45,7 @@ public class AdminService {
 
         return productRepo.save(editedProduct);
     }
+     */
 
     //Customer methods
 
