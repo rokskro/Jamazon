@@ -30,11 +30,11 @@ public class Customer {
 
     public Customer() {}
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_id", referencedColumnName = "cardId")
+    @OneToOne(targetEntity = CustomerCard.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "card_id", referencedColumnName = "cardID")
     private CustomerCard card;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "addressId")
     private Address address;
     

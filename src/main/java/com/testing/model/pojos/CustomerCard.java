@@ -1,11 +1,16 @@
 package com.testing.model.pojos;
 
-//@Entity
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class CustomerCard {
-    /*
+
       @Id
-      @GeneratedValue(strategy=GenerationType.AUTO)
-    */
+      @GeneratedValue(strategy= GenerationType.AUTO)
+
 
     private Long CardID;
     private int CardNumber;
