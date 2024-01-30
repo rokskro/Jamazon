@@ -1,4 +1,4 @@
-package com.testing.model;
+package com.testing.model.enums;
 
 public enum CardType {
 	
@@ -6,7 +6,7 @@ public enum CardType {
 	MASTERCARD("Mastercard Card"), 
 	JAMMYFRIEND("JammyFriend Easy Payment System");
 
-	String paymentType;
+	final String paymentType;
 	
 	CardType(String paymentType) {
 		this.paymentType = paymentType;

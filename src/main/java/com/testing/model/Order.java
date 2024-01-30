@@ -1,5 +1,7 @@
 package com.testing.model;
 
+import com.testing.model.enums.OrderStatus;
+
 import java.util.HashMap;
 
 public class Order {

@@ -1,4 +1,6 @@
 package com.testing.model;
+import com.testing.model.enums.ProductCategory;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -13,7 +15,6 @@ public class Product {
     int quantity;
 
     ProductCategory productCategory;
-
 
     public Product() {
         super();

@@ -1,5 +1,7 @@
 package com.testing.model;
 
+import com.testing.model.enums.SignOfTheStars;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

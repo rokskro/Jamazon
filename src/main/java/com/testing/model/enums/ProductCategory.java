@@ -1,4 +1,4 @@
-package com.testing.model;
+package com.testing.model.enums;
 
 public enum ProductCategory {
 	
@@ -6,7 +6,7 @@ public enum ProductCategory {
 	ELECTRONIC("Electonic Products"), 
 	HOUSEHOLD("Household Products");
 
-	String category;
+	final String category;
 	
 	ProductCategory(String category) {
 		this.category = category;
