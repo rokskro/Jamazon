@@ -46,6 +46,21 @@ public class AdminService {
         customerRepo.deleteById(customerId);
     }
 
+    public Customer editCustomer(Customer customer){
+        Customer editedCustomer = customerRepo.findById(customer.getCustomerId())
+                .orElseThrow(() -> new IllegalArgumentException("Product not found"));
+
+        editedCustomer.setFirstName(customer.getFirstName());
+        editedCustomer.setLastName(customer.getLastName());
+        editedCustomer.setEmail(customer.getEmail());
+        editedCustomer.setPassword(customer.getPassword());
+        editedCustomer.setDateOfBirth(customer.getDateOfBirth());
+        editedCustomer.setStarSign(customer.getStarSign());
+
+
+        return customerRepo.save(editedCustomer);
+    }
+
 
 
 
