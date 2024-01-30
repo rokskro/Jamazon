@@ -13,7 +13,7 @@ public class Order {
     OrderStatus orderStatus;
 
     public Order(){
-
+        super();
     }
 
     public Order(Long orderId, HashMap<Product, Integer> productList, Long address, double totalCost, String datePlaced, OrderStatus orderStatus) {
