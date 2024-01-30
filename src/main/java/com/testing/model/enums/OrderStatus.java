@@ -12,4 +12,8 @@ public enum OrderStatus {
 		this.deliveryStatus = deliveryStatus;
 	}
 	
+	public String getOrderStatus() {
+		return deliveryStatus;
+	}
+	
 }

@@ -1,8 +1,8 @@
-package com.testing.model;
-
-import com.testing.model.enums.ProductCategory;
+package com.testing.model.pojos;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import com.testing.model.enums.ProductCategory;
 
 @Entity
 public class Product {
@@ -15,6 +15,7 @@ public class Product {
     int quantity;
 
     ProductCategory productCategory;
+
 
     public Product() {
         super();

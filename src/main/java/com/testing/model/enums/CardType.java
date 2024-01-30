@@ -12,6 +12,10 @@ public enum CardType {
 		this.paymentType = paymentType;
 	}
 	
+	public String getCardType() {
+		return paymentType;
+	}
+	
 	
 	
 }
