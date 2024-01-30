@@ -13,6 +13,12 @@ public class JamazonApplication {
 		System.out.println("Let's gooooo");
 		System.out.println("Testing Eclipse push");
 		System.out.println("oh god please work");
+
+		System.out.println("30/1/2024 start ");
+		System.out.println("11:54 ");
+		System.out.println("Jamie is the best Programmer");
+		System.out.println("Test");
+
 	}
 
 }

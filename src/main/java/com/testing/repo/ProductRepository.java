@@ -1,7 +1,8 @@
 package com.testing.repo;
 
-import com.testing.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.testing.model.pojos.Product;
 
 public interface ProductRepository extends JpaRepository <Product, Long> {
 }

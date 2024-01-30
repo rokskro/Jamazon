@@ -1,4 +1,4 @@
-package com.testing.model;
+package com.testing.model.enums;
 
 public enum SignOfTheStars {
 	
@@ -19,6 +19,10 @@ public enum SignOfTheStars {
 	
 	SignOfTheStars(String starSign) {
 		this.starSign = starSign;
+	}
+	
+	public String getStarSign() {
+		return starSign;
 	}
 	
 	

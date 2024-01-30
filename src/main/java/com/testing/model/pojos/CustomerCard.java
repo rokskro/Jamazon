@@ -1,11 +1,18 @@
-package com.testing.model;
+package com.testing.model.pojos;
 
-//@Entity
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.testing.model.enums.CardType;
+
+@Entity
 public class CustomerCard {
-    /*
+
       @Id
-      @GeneratedValue(strategy=GenerationType.AUTO)
-    */
+      @GeneratedValue(strategy= GenerationType.AUTO)
+
 
     private Long CardID;
     private int CardNumber;
@@ -13,13 +20,14 @@ public class CustomerCard {
     private int CVVNumber;
     private String CardName;
     private Long Customer;
+    private CardType cardType;
 
     public CustomerCard(){
         super();
         //TODO Auto-generated Constructor Sub
     }
 
-    public CustomerCard(Long cardId, int cardNumber, String expiryDate, int cvvNumber,String cardName, Long customer){
+    public CustomerCard(Long cardId, int cardNumber, String expiryDate, int cvvNumber,String cardName, Long customer, CardType cardType){
         super();
         this.CardID = cardId;
         this.CardNumber = cardNumber;
@@ -27,6 +35,7 @@ public class CustomerCard {
         this.CVVNumber = cvvNumber;
         this.CardName = cardName;
         this.Customer = customer;
+        this.cardType = cardType;
     }
 
     //getters + setters
@@ -77,6 +86,14 @@ public class CustomerCard {
 
     public void setCustomer(Long customer) {
         Customer = customer;
+    }
+    
+    public CardType getCardType() {
+    	return cardType;
+    }
+    
+    public void setCardType(CardType cardType) {
+    	this.cardType = cardType;
     }
 
 

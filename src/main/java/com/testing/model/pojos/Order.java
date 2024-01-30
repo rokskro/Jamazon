@@ -1,8 +1,11 @@
-package com.testing.model;
+package com.testing.model.pojos;
+
+import com.testing.model.enums.OrderStatus;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.testing.model.enums.OrderStatus;
 
 @Entity
 @Table(name="order")

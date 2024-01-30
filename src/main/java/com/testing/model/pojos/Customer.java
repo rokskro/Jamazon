@@ -1,4 +1,6 @@
-package com.testing.model;
+package com.testing.model.pojos;
+
+import com.testing.model.enums.SignOfTheStars;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -7,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import com.testing.model.enums.SignOfTheStars;
 
 import java.util.Date;
 
@@ -26,11 +30,11 @@ public class Customer {
 
     public Customer() {}
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_id", referencedColumnName = "cardId")
+    @OneToOne(targetEntity = CustomerCard.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "card_id", referencedColumnName = "cardID")
     private CustomerCard card;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "addressId")
     private Address address;
     

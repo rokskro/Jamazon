@@ -1,7 +1,15 @@
-package com.testing.model;
+
+package com.testing.model.pojos;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import com.testing.model.enums.ProductCategory;
 
 @Entity
 @Table(name = "product")

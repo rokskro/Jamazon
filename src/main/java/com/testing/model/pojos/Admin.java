@@ -1,7 +1,8 @@
-package com.testing.model;
+package com.testing.model.pojos;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -32,7 +33,7 @@ public class Admin {
         return adminId;
     }
     public void setAdminId(Long adminId) {
-        this.AdminId = AdminId;
+        this.adminId = adminId;
     }
     public String getFirstName() {
         return firstName;
