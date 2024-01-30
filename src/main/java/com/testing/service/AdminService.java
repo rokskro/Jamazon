@@ -1,9 +1,6 @@
 package com.testing.service;
-<<<<<<<<< Temporary merge branch 1
-import com.testing.model.*;
-=========
+
 import com.testing.model.pojos.Product;
->>>>>>>>> Temporary merge branch 2
 import com.testing.repo.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +47,7 @@ public class AdminService {
         customerRepo.deleteById(customerId);
     }
 
+    /*
     public Customer editCustomer(Customer customer){
         Customer editedCustomer = customerRepo.findById(customer.getCustomerId())
                 .orElseThrow(() -> new IllegalArgumentException("Product not found"));
@@ -64,7 +62,7 @@ public class AdminService {
 
         return customerRepo.save(editedCustomer);
     }
-
+     */
 
 
 
