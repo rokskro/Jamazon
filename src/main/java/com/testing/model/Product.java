@@ -1,33 +1,36 @@
 package com.testing.model;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "product")
 public class Product {
     @Id
-    Long productId;
-    String productName;
-    double value;
-    String description;
-    String image;
-    int quantity;
-
-    ProductCategory productCategory;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long productId;
+    private String productName;
+    private double value;
+    private String description;
+    private String image;
+    private int quantity;
+    @OneToMany(mappedBy="product", cascade = CascadeType.ALL)
+    private List<OrderProduct> orderProducts = new ArrayList<>();
+    private ProductCategory productCategory;
 
     public Product() {
         super();
         //TODO Auto-Generated Constructor stub
     }
 
-    public Product(Long productId, String productName, double value, String description, String image, int quantity, ProductCategory productCategory) {
-        super();
+    public Product(Long productId, String productName, double value, String description, String image, int quantity, List<OrderProduct> orderProducts, ProductCategory productCategory) {
         this.productId = productId;
         this.productName = productName;
         this.value = value;
         this.description = description;
         this.image = image;
         this.quantity = quantity;
+        this.orderProducts = orderProducts;
         this.productCategory = productCategory;
     }
 
@@ -86,4 +89,11 @@ public class Product {
     public void setProductCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;
     }
-}
+
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public void setOrderProducts(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
+    }}
