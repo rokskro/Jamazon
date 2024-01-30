@@ -1,8 +1,10 @@
-package com.testing.model;
+package com.testing.model.pojos;
 
 import com.testing.model.enums.OrderStatus;
 
 import java.util.HashMap;
+
+import com.testing.model.enums.OrderStatus;
 
 public class Order {
     Long orderId;

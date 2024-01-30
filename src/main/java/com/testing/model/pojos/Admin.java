@@ -1,4 +1,4 @@
-package com.testing.model;
+package com.testing.model.pojos;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

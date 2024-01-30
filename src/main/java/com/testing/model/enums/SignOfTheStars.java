@@ -21,6 +21,10 @@ public enum SignOfTheStars {
 		this.starSign = starSign;
 	}
 	
+	public String getStarSign() {
+		return starSign;
+	}
+	
 	
 
 }

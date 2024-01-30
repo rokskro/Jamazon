@@ -12,6 +12,9 @@ public enum ProductCategory {
 		this.category = category;
 	}
 	
+	public String getCategory() {
+		return category;
+	}
 	
 	
 }
