@@ -16,9 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -42,8 +42,8 @@ public class JamazonTests {
 	@Test
 	public void testAddProduct() {
 		Product product = new Product();
-		Mockito.when(productRep.save(any(Product.class))).thenReturn(product);
-		Assert.assertEquals(product, admin.addProduct(product));
+		when(productRep.save(any(Product.class))).thenReturn(product);
+		assertEquals(product, admin.addProduct(product));
 	}
 
 	@Test
@@ -53,6 +53,17 @@ public class JamazonTests {
 		admin.deleteProduct(productId);
 		verify(productRep, times(1)).deleteById(productId);
 	}
+
+	@Test
+	public void testEditProduct(Product product) {
+		when(productRep.findById(any())).thenReturn(Optional.of(product));
+		when(productRep.save(any(Product.class))).thenReturn(product);
+
+		Product result = admin.editProduct(product);
+		assertEquals(product, result);
+	}
+
+	//Customer [admin control] Methods
 
 
 
