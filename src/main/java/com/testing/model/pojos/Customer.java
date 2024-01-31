@@ -2,13 +2,7 @@ package com.testing.model.pojos;
 
 import com.testing.model.enums.SignOfTheStars;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import com.testing.model.enums.SignOfTheStars;
 
@@ -20,11 +14,17 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
+    @Column(name="first_name")
     private String firstName;
+    @Column(name="last_name")
     private String lastName;
+    @Column(name="email")
     private String email;
+    @Column(name="date_of_birth")
     private Date dateOfBirth;
+    @Column(name="password")
     private String password;
+    @Column(name="starsign")
     SignOfTheStars starSign;
 
 
@@ -52,6 +52,16 @@ public class Customer {
         this.password = password;
         this.starSign = starSign;
     }
+
+    public Customer(Long customerId, String firstName, String lastName, String email, Date dateOfBirth, String password) {
+        this.customerId = customerId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+    }
+
     public Long getCustomerId() {
         return customerId;
     }

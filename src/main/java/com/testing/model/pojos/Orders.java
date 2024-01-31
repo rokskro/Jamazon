@@ -1,19 +1,18 @@
 package com.testing.model.pojos;
 
-import com.testing.model.enums.OrderStatus;
+import com.testing.model.enums.OrdersStatus;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import com.testing.model.enums.OrderStatus;
 
 @Entity
-@Table(name="order")
-public class Order {
+@Table(name="orders")
+public class Orders {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "orderId")
-    private Long orderId;
+    @Column(name = "ordersId")
+    private Long ordersId;
 
 @ManyToMany
 private List<OrderProduct> orderedProducts = new ArrayList<>();
@@ -21,25 +20,25 @@ private List<OrderProduct> orderedProducts = new ArrayList<>();
     private Long address;
     private double totalCost;
     private String datePlaced;
-    private OrderStatus orderStatus;
+    private OrdersStatus ordersStatus;
 
-    public Order() {
+    public Orders() {
     }
 
-    public Order(Long orderId, List<OrderProduct> orderedProducts, Long address, double totalCost, String datePlaced, OrderStatus orderStatus) {
-        this.orderId = orderId;
+    public Orders(Long ordersId, List<OrderProduct> orderedProducts, Long address, double totalCost, String datePlaced, OrdersStatus ordersStatus) {
+        this.ordersId = ordersId;
         this.orderedProducts = orderedProducts;
         this.address = address;
         this.totalCost = totalCost;
         this.datePlaced = datePlaced;
-        this.orderStatus = orderStatus;
+        this.ordersStatus = ordersStatus;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getOrdersId() {
+        return ordersId;
     }
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrdersId(Long ordersId) {
+        this.ordersId = ordersId;
     }
 
     public Long getAddress() {
@@ -66,12 +65,12 @@ private List<OrderProduct> orderedProducts = new ArrayList<>();
         this.datePlaced = datePlaced;
     }
 
-    public OrderStatus getOrderStatus() {
-        return orderStatus;
+    public OrdersStatus getOrdersStatus() {
+        return ordersStatus;
     }
 
-    public void setOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setOrdersStatus(OrdersStatus ordersStatus) {
+        this.ordersStatus = ordersStatus;
     }
 
     public List<OrderProduct> getOrderProducts() {
