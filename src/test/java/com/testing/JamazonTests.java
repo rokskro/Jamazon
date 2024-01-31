@@ -1,22 +1,26 @@
 package com.testing;
 
+import com.testing.model.enums.SignOfTheStars;
 import com.testing.model.pojos.*;
 import com.testing.repo.*;
 import com.testing.service.*;
+import java.util.*;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -53,7 +57,8 @@ public class JamazonTests {
 	}
 
 	@Test
-	public void testEditProduct(Product product) {
+	public void testEditProduct() {
+		Product product = new Product();
 		when(productRep.findById(any())).thenReturn(Optional.of(product));
 		when(productRep.save(any(Product.class))).thenReturn(product);
 
@@ -61,8 +66,49 @@ public class JamazonTests {
 		assertEquals(product, result);
 	}
 
-	//Customer [admin control] Methods
+	//Customer management [admin control] Methods
+	@Test
+	public void testDeleteCustomer() {
+		Customer customer = new Customer(101L, "first_name", "last_name", "test@mail.com","10/01/24","password", SignOfTheStars.ARIES );
+		admin.deleteCustomer(customer.getCustomerId());
+		verify(customerRep, times(1)).deleteById(customer.getCustomerId());
+	}
 
+	@Test
+	public void testEditCustomer() {
+		Customer customer = new Customer(101L, "first_name", "last_name", "test@mail.com","10/01/24","password", SignOfTheStars.ARIES );
+		when(customerRep.findById(any())).thenReturn(Optional.of(customer));
+		when(customerRep.save(any(Customer.class))).thenReturn(customer);
 
+		Customer result = admin.editCustomer(customer);
+		assertEquals(customer, result);
+	}
 
+	//Order [admin control] Methods
+	@Test
+	public void testViewAllOrders() {
+		Orders orders = new Orders();
+		List<Orders> ordersList = Collections.singletonList(orders);
+		when(orderRep.findAll()).thenReturn(ordersList);
+
+		List<Orders> result = admin.ViewAllOrders();
+		assertEquals(ordersList, result);
+	}
+
+	@Test
+	public void testOrderCount() {
+		when(orderRep.count()).thenReturn(1L);
+
+		long result = admin.OrdersCount();
+		assertEquals(1L, result);
+	}
+
+	@Test
+	public void testCancelOrder() {
+		Long orderId = 1L;
+		when(orderRep.findById(any())).thenReturn(Optional.of(new Orders()));
+		doNothing().when(orderRep).deleteById(anyLong());
+
+		assertDoesNotThrow(() -> admin.CancelOrders(orderId));
+	}
 }
