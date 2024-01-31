@@ -28,7 +28,9 @@ public class Customer {
     SignOfTheStars starSign;
 
 
-    public Customer() {}
+    public Customer() {
+        super();
+    }
     
     @OneToOne(targetEntity = CustomerCard.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "card_id", referencedColumnName = "cardID")
@@ -93,5 +95,5 @@ public class Customer {
     public void setStarSign(SignOfTheStars starSign) {
         this.starSign = starSign;
     }
-  
+
 }
