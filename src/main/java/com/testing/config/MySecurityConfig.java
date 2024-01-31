@@ -46,5 +46,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 		//return NoOpPasswordEncoder.getInstance();
 		return new BCryptPasswordEncoder(10);
 	}
+	
+	
+	//List getting password + email
+	//grab users, encode password when adding to list (two lists one for user one for admin)
+	//Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
+	//SecurityContextHolder.getContext().setAuthentication(authentication);
 }
   
