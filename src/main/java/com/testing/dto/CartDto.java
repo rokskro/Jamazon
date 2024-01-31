@@ -1,45 +1,56 @@
 package com.testing.dto;
 
 
+import com.sun.istack.NotNull;
 import com.testing.model.enums.OrderStatus;
+import com.testing.model.pojos.Cart;
 import com.testing.model.pojos.Customer;
 import com.testing.model.pojos.Product;
 
 import java.util.HashMap;
 
+//shows cart data
 public class CartDto {
+    private long cartId;
+    private @NotNull long customerId;
+    private @NotNull int quantity;
+    private @NotNull Product product;
 
     public CartDto() {
         super();
     }
 
-    public CartDto(Long customerId, Long productId, int quantity) {
-        super();
-        this.customerId = customerId;
-        this.productId = productId;
-        this.quantity = quantity;
+    public CartDto(Cart cart) {
+        this.setCartId(cart.getCartId());
+        this.setCustomerId(cart.getCustomerId());
+        this.setQuantity(cart.getQuantity());
+        this.setProduct(cart.getProduct());
     }
 
-    private Long customerId;
-    private Long productId;
-    private int quantity;
+    public long getCartId() {
+        return cartId;
+    }
 
-
+    public void setCartId(long cartId) {
+        this.cartId = cartId;
+    }
 
     public Long getCustomerId() {
+
         return customerId;
     }
 
     public void setCustomerId(Long customerId) {
+
         this.customerId = customerId;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
