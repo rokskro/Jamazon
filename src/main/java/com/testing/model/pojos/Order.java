@@ -2,43 +2,44 @@ package com.testing.model.pojos;
 
 import com.testing.model.enums.OrderStatus;
 
-import java.util.HashMap;
-
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import com.testing.model.enums.OrderStatus;
 
+@Entity
+@Table(name="order")
 public class Order {
-    Long orderId;
-    HashMap<Product, Integer> productList = new HashMap<Product, Integer>();
-    Long address;
-    double totalCost;
-    String datePlaced;
-    OrderStatus orderStatus;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = "orderId")
+    private Long orderId;
 
-    public Order(){
-        super();
+@ManyToMany
+private List<OrderProduct> orderedProducts = new ArrayList<>();
+
+    private Long address;
+    private double totalCost;
+    private String datePlaced;
+    private OrderStatus orderStatus;
+
+    public Order() {
     }
 
-    public Order(Long orderId, HashMap<Product, Integer> productList, Long address, double totalCost, String datePlaced, OrderStatus orderStatus) {
+    public Order(Long orderId, List<OrderProduct> orderedProducts, Long address, double totalCost, String datePlaced, OrderStatus orderStatus) {
         this.orderId = orderId;
-        this.productList = productList;
+        this.orderedProducts = orderedProducts;
         this.address = address;
         this.totalCost = totalCost;
         this.datePlaced = datePlaced;
         this.orderStatus = orderStatus;
     }
+
     public Long getOrderId() {
         return orderId;
     }
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
-    }
-
-    public HashMap<Product, Integer> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(HashMap<Product, Integer> productList) {
-        this.productList = productList;
     }
 
     public Long getAddress() {
@@ -71,6 +72,14 @@ public class Order {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public List<OrderProduct> getOrderProducts() {
+        return orderedProducts;
+    }
+
+    public void setOrderProducts(List<OrderProduct> orderedProducts) {
+        this.orderedProducts = orderedProducts;
     }
 
 }
