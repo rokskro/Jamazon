@@ -1,5 +1,6 @@
 package com.testing.model.pojos;
 
+import com.testing.dto.AddToCartDto;
 import com.testing.dto.CartDto;
 
 import javax.persistence.*;
@@ -36,13 +37,16 @@ public class Cart {
 
     public Cart(CartDto cartDto, Product product, Customer customer, long customerId) {
         this.customerId = customerId;
-        this.productId = cartDto.getProductId();
+//        this.productId = cartDto.getProductId();
         this.quantity = cartDto.getQuantity();
         this.product = product;
     }
 
+    public Cart(AddToCartDto addToCartDto, long customerId) {
+    }
 
-        public Long getCartId () {
+
+    public Long getCartId () {
             return cartId;
         }
 
