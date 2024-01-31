@@ -4,7 +4,6 @@ import com.testing.model.pojos.*;
 import com.testing.repo.*;
 import com.testing.service.*;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
@@ -14,7 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.*;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -61,7 +63,49 @@ public class JamazonTests {
 		assertEquals(product, result);
 	}
 
-	//Customer [admin control] Methods
+	//Customer management [admin control] Methods
+	@Test
+	public void testDeleteCustomer() {
+		doNothing().when(customerRep).deleteById(anyLong());
+		assertDoesNotThrow(() -> admin.deleteCustomer(1L));
+	}
+
+	@Test
+	public void testEditCustomer(Customer customer) {
+		when(customerRep.findById(any())).thenReturn(Optional.of(customer));
+		when(customerRep.save(any(Customer.class))).thenReturn(customer);
+
+		Customer result = admin.editCustomer(customer);
+		assertEquals(customer, result);
+	}
+
+	//Order [admin control] Methods
+	@Test
+	public void testViewAllOrders() {
+		Orders orders = new Orders();
+		List<Orders> ordersList = Collections.singletonList(orders);
+		when(orderRep.findAll()).thenReturn(ordersList);
+
+		List<Orders> result = admin.ViewAllOrders();
+		assertEquals(ordersList, result);
+	}
+
+	@Test
+	public void testOrderCount() {
+		when(orderRep.count()).thenReturn(1L);
+
+		long result = admin.OrdersCount();
+		assertEquals(1L, result);
+	}
+
+	@Test
+	public void testCancelOrder(Orders orders) {
+		when(orderRep.findById(any())).thenReturn(Optional.of(orders));
+		doNothing().when(orderRep).deleteById(anyLong());
+
+		assertDoesNotThrow(() -> admin.CancelOrders(1L));
+	}
+
 
 
 
