@@ -1,8 +1,5 @@
 package com.testing.model.pojos;
 
-import com.testing.model.pojos.Order;
-import com.testing.model.pojos.Product;
-
 import javax.persistence.*;
 
 
@@ -15,7 +12,7 @@ public class OrderProduct {
 
     @ManyToOne
     @JoinColumn(name = "orders_id")
-    private Order order;
+    private Orders orders;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -26,9 +23,9 @@ public class OrderProduct {
     public OrderProduct() {
     }
 
-    public OrderProduct(Long orderProductId, Order order, Product product, int quantity) {
+    public OrderProduct(Long orderProductId, Orders orders, Product product, int quantity) {
         this.orderProductId = orderProductId;
-        this.order = order;
+        this.orders = orders;
         this.product = product;
         this.quantity = quantity;
     }
@@ -41,12 +38,12 @@ public class OrderProduct {
         this.orderProductId = orderProductId;
     }
 
-    public Order getOrder() {
-        return order;
+    public Orders getOrder() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrder(Orders orders) {
+        this.orders = orders;
     }
 
     public Product getProduct() {

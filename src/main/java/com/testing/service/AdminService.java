@@ -1,6 +1,6 @@
 package com.testing.service;
 
-import com.testing.model.enums.*;
+import com.testing.model.enums.OrdersStatus;
 import com.testing.model.pojos.*;
 import com.testing.repo.*;
 import org.springframework.data.domain.Sort;
@@ -17,7 +17,7 @@ public class AdminService {
     private ProductRepository productRepo;
 
     @Autowired
-    private OrderRepository orderRepo;
+    private OrdersRepository ordersRepo;
 
     @Autowired
     private CustomerRepository customerRepo;
@@ -66,31 +66,31 @@ public class AdminService {
     }
 
     //order methods
-    public List<Order> ViewAllOrders() {
-        return orderRepo.findAll();
+    public List<Orders> ViewAllOrders() {
+        return ordersRepo.findAll();
     }
 
-    public long OrderCount() {
-        return orderRepo.count();
+    public long OrdersCount() {
+        return ordersRepo.count();
     }
 
-    public void CancelOrder(Long orderId) {
-        Optional<Order> order = orderRepo.findById(orderId);
-        if(order.isPresent()) {
-            orderRepo.deleteById(orderId);
-            System.out.println("Order " + orderId + "has been cancelled successfully");
+    public void CancelOrders(Long ordersId) {
+        Optional<Orders> orders = ordersRepo.findById(ordersId);
+        if(orders.isPresent()) {
+            ordersRepo.deleteById(ordersId);
+            System.out.println("Order " + ordersId + "has been cancelled successfully");
         }
     }
 
-    public List<Order> orderStatusSort() {
+    public List<Orders> ordersStatusSort() {
         Sort sort = Sort.by(Sort.Direction.ASC, "orderStatus");
-        return orderRepo.findAll(sort);
+        return ordersRepo.findAll(sort);
     }
 
-    public Map<OrderStatus, Long> countOrdersByStatus() {
-        List<Order> orders = orderStatusSort();
+    public Map<OrdersStatus, Long> countOrdersByStatus() {
+        List<Orders> orders = ordersStatusSort();
         return orders.stream()
-                .collect(Collectors.groupingBy(Order::getOrderStatus, Collectors.counting()));
+                .collect(Collectors.groupingBy(Orders::getOrdersStatus, Collectors.counting()));
     }
 
 

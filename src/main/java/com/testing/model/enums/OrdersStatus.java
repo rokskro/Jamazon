@@ -1,6 +1,6 @@
 package com.testing.model.enums;
 
-public enum OrderStatus {
+public enum OrdersStatus {
 	
 	CONFIRMED("Order Confirmed"), 
 	TRANSIT("Order In Transit"), 
@@ -8,11 +8,11 @@ public enum OrderStatus {
 
 	final String deliveryStatus;
 	
-	OrderStatus(String deliveryStatus) {
+	OrdersStatus(String deliveryStatus) {
 		this.deliveryStatus = deliveryStatus;
 	}
 	
-	public String getOrderStatus() {
+	public String getOrdersStatus() {
 		return deliveryStatus;
 	}
 	

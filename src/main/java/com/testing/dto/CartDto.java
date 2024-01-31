@@ -1,6 +1,7 @@
 package com.testing.dto;
 
 
+
 import com.sun.istack.NotNull;
 import com.testing.model.enums.OrderStatus;
 import com.testing.model.pojos.Cart;
@@ -9,7 +10,6 @@ import com.testing.model.pojos.Product;
 
 import java.util.HashMap;
 
-//shows cart data
 public class CartDto {
     private long cartId;
     private @NotNull long customerId;

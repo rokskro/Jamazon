@@ -3,12 +3,10 @@ package com.testing;
 import com.testing.model.pojos.*;
 import com.testing.repo.*;
 import com.testing.service.*;
-import java.util.*;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.junit.jupiter.api.Assertions;
 
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +32,7 @@ public class JamazonTests {
 	@MockBean
 	private CustomerRepository customerRep;
 	@MockBean
-	private OrderRepository orderRep;
+	private OrdersRepository orderRep;
 	@MockBean
 	private ProductRepository productRep;
 
