@@ -1,12 +1,6 @@
 package com.testing.dto;
 
 
-import com.testing.model.enums.OrderStatus;
-import com.testing.model.pojos.Customer;
-import com.testing.model.pojos.Product;
-
-import java.util.HashMap;
-
 public class CartDto {
 
     public CartDto() {
