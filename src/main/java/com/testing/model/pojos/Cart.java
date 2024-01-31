@@ -13,20 +13,20 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
 
-    @Column(name = "customerId")
+    /*@Column(name = "customerId")
     private Long customerId;
 
     @Column(name = "productId")
-    private Long productId;
+    private Long productId;*/
 
     private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "customerId")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
 
@@ -35,14 +35,10 @@ public class Cart {
     }
 
 
-    public Cart(CartDto cartDto, Product product, Customer customer, long customerId) {
-        this.customerId = customerId;
-//        this.productId = cartDto.getProductId();
-        this.quantity = cartDto.getQuantity();
+    public Cart(Customer customer, Product product, int quantity) {
+        this.customer = customer;
         this.product = product;
-    }
-
-    public Cart(AddToCartDto addToCartDto, long customerId) {
+        this.quantity = quantity;
     }
 
 
@@ -50,33 +46,31 @@ public class Cart {
             return cartId;
         }
 
-        public void setCartId (Long cartId){
+    public void setCartId (Long cartId){
             this.cartId = cartId;
         }
 
-        public int getQuantity () {
-            return quantity;
-        }
+    public Customer getCustomer() {
+        return customer;
+    }
 
-        public void setQuantity (int quantity){
-            this.quantity = quantity;
-        }
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
-        public Long getCustomerId () {
-            return customerId;
-        }
+    public Product getProduct() {
+        return product;
+    }
 
-        public void setCustomerId (Long customerId){
-            this.customerId = customerId;
-        }
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
-        public Long getProductId () {
-            return productId;
-        }
+    public int getQuantity() {
+        return quantity;
+    }
 
-        public void setProductId (Long productId){
-            this.productId = productId;
-        }
-
-
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
