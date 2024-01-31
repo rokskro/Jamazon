@@ -1,56 +1,64 @@
 package com.testing.config;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.testing.service.CustomerDetailsService;
+ 
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
-	@Override
-	protected void configure(HttpSecurity http) throws Exception{
-		
-		http
-		//.csrf().disable()
-		//.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-		//.and()
-		.authorizeRequests()
-		.antMatchers("/api/**").hasRole("NORMAL")
-		.antMatchers("/security/**").hasRole("ADMIN")
-		   .anyRequest()
-		   .authenticated()
-		   .and()
-		   .httpBasic();
-	}
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication()
-		.withUser("Preeti")
-		.password(this.passwordEncoder().encode("welcome"))
-		.roles("NORMAL");
-
-		auth.inMemoryAuthentication()
-		.withUser("Conor")
-		.password(this.passwordEncoder().encode("Amazon"))
-		.roles("ADMIN");
-	}
-	@Bean
-	public PasswordEncoder passwordEncoder()
-	{
-		//return NoOpPasswordEncoder.getInstance();
-		return new BCryptPasswordEncoder(10);
-	}
-	
-	
-	//List getting password + email
-	//grab users, encode password when adding to list (two lists one for user one for admin)
-	//Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
-	//SecurityContextHolder.getContext().setAuthentication(authentication);
+    @Autowired
+    private DataSource dataSource;
+     
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return new CustomerDetailsService();
+    }
+     
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+     
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder());
+         
+        return authProvider;
+    }
+ 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(authenticationProvider());
+    }
+ 
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/users").authenticated()
+            .anyRequest().permitAll()
+            .and()
+            .formLogin()
+                .usernameParameter("email")
+                .defaultSuccessUrl("URL FOR USERS")
+                .permitAll()
+            .and()
+            .logout().logoutSuccessUrl("/").permitAll();
+    }
+     
+     
 }
   
