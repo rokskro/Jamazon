@@ -33,6 +33,7 @@ public class Product {
         this.productCategory = productCategory;
     }
 
+
     public Long getProductId() {
         return productId;
     }

@@ -42,7 +42,6 @@ public class JamazonTests {
 	@Test
 	public void testAddProduct() {
 		Product product = new Product();
-		product.setProductId(1L);
 		Mockito.when(productRep.save(any(Product.class))).thenReturn(product);
 		Assert.assertEquals(product, admin.addProduct(product));
 	}
