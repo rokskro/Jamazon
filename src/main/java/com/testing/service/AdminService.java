@@ -1,15 +1,13 @@
 package com.testing.service;
 
-import com.testing.model.enums.OrderStatus;
+import com.testing.model.enums.*;
 import com.testing.model.pojos.*;
 import com.testing.repo.*;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,7 +23,6 @@ public class AdminService {
     private CustomerRepository customerRepo;
 
     //Product methods
-
     public Product addProduct(Product product){
         return productRepo.save(product);
     }
@@ -48,15 +45,11 @@ public class AdminService {
         return productRepo.save(editedProduct);
     }
 
-
-
     //Customer methods
-
     public void deleteCustomer(Long customerId){
         customerRepo.deleteById(customerId);
     }
 
-    
     public Customer editCustomer(Customer customer){
         Customer editedCustomer = customerRepo.findById(customer.getCustomerId())
                 .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
@@ -99,12 +92,6 @@ public class AdminService {
         return orders.stream()
                 .collect(Collectors.groupingBy(Order::getOrderStatus, Collectors.counting()));
     }
-
-
-
-     
-
-
 
 
 
