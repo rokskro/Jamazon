@@ -20,6 +20,8 @@ public class JamazonApplication {
 		System.out.println("Test");
 		System.out.println("Testing connection");
 
+		System.out.println("meow");
+
 	}
 
 }
