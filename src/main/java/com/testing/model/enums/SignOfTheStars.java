@@ -10,12 +10,12 @@ public enum SignOfTheStars {
 	VIRGO("Virgo"),
 	LIBRA("Libra"),
 	SCORPIO("Scorpio"),
-	SAGITTARIUS("Sagitiarius"),
+	SAGITTARIUS("Sagittarius"),
 	CAPRICORN("Capricorn"),
 	AQUARIUS("Aquarius"),
 	PISCES("Pisces");
 
-	String starSign;
+	final String starSign;
 	
 	SignOfTheStars(String starSign) {
 		this.starSign = starSign;
