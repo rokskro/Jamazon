@@ -5,7 +5,7 @@ import com.testing.dto.CartDto;
 
 import javax.persistence.*;
 @Entity
-@Table(name="cart")
+//@Table(name="cart")
 public class Cart {
 
 
@@ -21,12 +21,12 @@ public class Cart {
 
     private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
+   /* @ManyToOne
+    @JoinColumn(name = "customer_id")*/
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
+    /*@ManyToOne
+    @JoinColumn(name = "product_id")*/
     private Product product;
 
 
