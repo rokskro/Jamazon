@@ -1,6 +1,6 @@
 package com.testing;
 
-import com.testing.model.enums.SignOfTheStars;
+import com.testing.model.enums.*;
 import com.testing.model.pojos.*;
 import com.testing.repo.*;
 import com.testing.service.*;
@@ -15,12 +15,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -69,14 +68,15 @@ public class JamazonTests {
 	//Customer management [admin control] Methods
 	@Test
 	public void testDeleteCustomer() {
-		Customer customer = new Customer(101L, "first_name", "last_name", "test@mail.com","10/01/24","password", SignOfTheStars.ARIES );
+		Customer customer = new Customer();
 		admin.deleteCustomer(customer.getCustomerId());
-		verify(customerRep, times(1)).deleteById(customer.getCustomerId());
+		verify(customerRep, times(1))
+				.deleteById(customer.getCustomerId());
 	}
 
 	@Test
 	public void testEditCustomer() {
-		Customer customer = new Customer(101L, "first_name", "last_name", "test@mail.com","10/01/24","password", SignOfTheStars.ARIES );
+		Customer customer = new Customer();
 		when(customerRep.findById(any())).thenReturn(Optional.of(customer));
 		when(customerRep.save(any(Customer.class))).thenReturn(customer);
 
@@ -110,5 +110,67 @@ public class JamazonTests {
 		doNothing().when(orderRep).deleteById(anyLong());
 
 		assertDoesNotThrow(() -> admin.CancelOrders(orderId));
+	}
+
+	// ------------------------[Customer Service Tests]-----------------------------------------------------------------
+
+	//Product methods
+	@Test
+	public void testViewAll() {
+		List<Product> products = new ArrayList<>();
+		products.add(new Product());
+		// Add more products as necessary
+		when(productRep.findAll()).thenReturn(products);
+
+		List<Product> result = customer.ViewAll();
+		assertEquals(products, result);
+	}
+
+	@Test
+	public void testSearch() {
+		String query = "searchQuery";
+		List<Product> products = new ArrayList<>();
+		products.add(new Product());
+		when(productRep.findProductName(query)).thenReturn(products);
+
+		List<Product> result = customer.Search(query);
+		assertEquals(products, result);
+	}
+
+	@Test
+	public void testSearchDesc() {
+		String query = "searchQuery";
+		List<Product> products = new ArrayList<>();
+		products.add(new Product());
+		when(productRep.findProductName(query)).thenReturn(products);
+
+		List<Product> result = customer.SearchDesc(query);
+		assertNotEquals(products, result);
+		products.sort(Comparator.comparing(Product::getDescription));
+		assertEquals(products, result);
+	}
+
+	@Test
+	public void testFilterByType() {
+		ProductCategory typeQuery = ProductCategory.ELECTRONIC;
+		List<Product> products = new ArrayList<>();
+		products.add(new Product());
+		when(productRep.findProductCategory(typeQuery)).thenReturn(products);
+
+		List<Product> result = customer.FilterByType(typeQuery);
+		assertEquals(products, result);
+	}
+
+	@Test
+	public void testFilterByTypeDesc() {
+		ProductCategory typeQuery = ProductCategory.CLOTHING;
+		List<Product> products = new ArrayList<>();
+		products.add(new Product());
+		when(productRep.findProductCategory(typeQuery)).thenReturn(products);
+
+		List<Product> result = customer.FilterByTypeDesc(typeQuery);
+		assertNotEquals(products, result);
+		products.sort(Comparator.comparing(Product::getDescription).reversed());
+		assertEquals(products, result);
 	}
 }

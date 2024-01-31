@@ -3,7 +3,7 @@ package com.testing.model.enums;
 public enum ProductCategory {
 	
 	CLOTHING("Clothing Products"), 
-	ELECTRONIC("Electonic Products"), 
+	ELECTRONIC("Electronic Products"),
 	HOUSEHOLD("Household Products");
 
 	final String category;
