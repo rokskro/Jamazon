@@ -1,10 +1,16 @@
 package com.testing.service;
 
-import com.testing.model.pojos.Customer;
-import com.testing.model.pojos.Product;
+import com.testing.model.enums.OrderStatus;
+import com.testing.model.pojos.*;
 import com.testing.repo.*;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AdminService {
@@ -42,6 +48,8 @@ public class AdminService {
         return productRepo.save(editedProduct);
     }
 
+
+
     //Customer methods
 
     public void deleteCustomer(Long customerId){
@@ -51,7 +59,7 @@ public class AdminService {
     
     public Customer editCustomer(Customer customer){
         Customer editedCustomer = customerRepo.findById(customer.getCustomerId())
-                .orElseThrow(() -> new IllegalArgumentException("Product not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
 
         editedCustomer.setFirstName(customer.getFirstName());
         editedCustomer.setLastName(customer.getLastName());
@@ -63,6 +71,37 @@ public class AdminService {
 
         return customerRepo.save(editedCustomer);
     }
+
+    //order methods
+    public List<Order> ViewAllOrders() {
+        return orderRepo.findAll();
+    }
+
+    public long OrderCount() {
+        return orderRepo.count();
+    }
+
+    public void CancelOrder(Long orderId) {
+        Optional<Order> order = orderRepo.findById(orderId);
+        if(order.isPresent()) {
+            orderRepo.deleteById(orderId);
+            System.out.println("Order " + orderId + "has been cancelled successfully");
+        }
+    }
+
+    public List<Order> orderStatusSort() {
+        Sort sort = Sort.by(Sort.Direction.ASC, "orderStatus");
+        return orderRepo.findAll(sort);
+    }
+
+    public Map<OrderStatus, Long> countOrdersByStatus() {
+        List<Order> orders = orderStatusSort();
+        return orders.stream()
+                .collect(Collectors.groupingBy(Order::getOrderStatus, Collectors.counting()));
+    }
+
+
+
      
 
 

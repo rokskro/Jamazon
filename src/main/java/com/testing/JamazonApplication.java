@@ -19,7 +19,6 @@ public class JamazonApplication {
 		System.out.println("Jamie is the best Programmer");
 		System.out.println("Test");
 		System.out.println("Testing connection");
-		System.out.println("Roxy test");
 
 	}
 
