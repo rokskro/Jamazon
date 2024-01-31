@@ -54,9 +54,7 @@ public class CustomerService {
 
     }
 
-    public Product addProductToCart(Customer customer, Product product) {
-        return productRepo.addProductToCart(product);
-    }
+
 
 
 
