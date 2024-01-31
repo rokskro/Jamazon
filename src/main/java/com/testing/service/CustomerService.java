@@ -1,16 +1,13 @@
 package com.testing.service;
 
-import com.testing.model.pojos.Customer;
-import com.testing.model.pojos.Product;
+import com.testing.model.enums.ProductCategory;
+import com.testing.model.pojos.*;
 import com.testing.repo.CustomerRepository;
 import com.testing.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -28,9 +25,9 @@ public class CustomerService {
         return customerRepo.save(customer);
     }
 
- //   public List<Customer> getAllCustomers() {
-//        return customerRepo.findAll();
-//    }
+    public List<Customer> getAllCustomers() {
+        return customerRepo.findAll();
+    }
 
     public void deleteCustomer (long customerId) {
         customerRepo.deleteById(customerId);
@@ -53,6 +50,37 @@ public class CustomerService {
                 });
 
     }
+
+    /*public Product addProductToCart(Customer customer, Product product) {
+        return productRepo.addProductToCart(product);
+    }
+     */
+
+    //Product methods
+    public List<Product> ViewAll() {
+        return productRepo.findAll();
+    }
+
+    public List<Product> Search(String query) {
+        return productRepo.findProductName(query);
+    }
+
+    public List<Product> SearchDesc(String query) {
+        List<Product> products = productRepo.findProductName(query);
+        products.sort(Comparator.comparing(Product::getDescription));
+        return products;
+    }
+
+    public List<Product> FilterByType(ProductCategory typeQuery) {
+        return productRepo.findProductCategory(typeQuery);
+    }
+    public List<Product> FilterByTypeDesc(ProductCategory typeQuery) {
+        List<Product> products = productRepo.findProductCategory(typeQuery);
+        products.sort(Comparator.comparing(Product::getDescription).reversed());
+        return products;
+    }
+
+
 
 
 
