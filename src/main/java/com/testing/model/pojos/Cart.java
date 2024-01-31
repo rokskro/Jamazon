@@ -13,11 +13,11 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
 
-    @Column(name = "customerId")
+    /*@Column(name = "customerId")
     private Long customerId;
 
     @Column(name = "productId")
-    private Long productId;
+    private Long productId;*/
 
     private int quantity;
 
