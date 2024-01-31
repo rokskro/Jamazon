@@ -10,9 +10,11 @@ public class RegisterCustomerDto {
     private String password;
 
     public RegisterCustomerDto() {
+        super();
     }
 
     public RegisterCustomerDto(String firstName, String lastName, String email, Date dateOfBirth, String password) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
