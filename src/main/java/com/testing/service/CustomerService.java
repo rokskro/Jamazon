@@ -1,5 +1,6 @@
 package com.testing.service;
 
+import com.testing.model.enums.ProductCategory;
 import com.testing.model.pojos.*;
 import com.testing.repo.CustomerRepository;
 import com.testing.repo.ProductRepository;
@@ -70,15 +71,16 @@ public class CustomerService {
         return products;
     }
 
-    public List<Product> FilterByType(String typeQuery) {
+    public List<Product> FilterByType(ProductCategory typeQuery) {
         return productRepo.findProductCategory(typeQuery);
     }
-
-    public List<Product> FilterByTypeDesc(String typeQuery) {
+    public List<Product> FilterByTypeDesc(ProductCategory typeQuery) {
         List<Product> products = productRepo.findProductCategory(typeQuery);
         products.sort(Comparator.comparing(Product::getDescription).reversed());
         return products;
     }
+
+
 
 
 
