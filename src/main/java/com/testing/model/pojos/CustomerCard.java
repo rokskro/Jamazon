@@ -1,9 +1,6 @@
 package com.testing.model.pojos;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import com.testing.model.enums.CardType;
 
@@ -19,6 +16,7 @@ public class CustomerCard {
     private String ExpiryDate;
     private int CVVNumber;
     private String CardName;
+    @Column(name="customer_id")
     private Long Customer;
     private CardType cardType;
 

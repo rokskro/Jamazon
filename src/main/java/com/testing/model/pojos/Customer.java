@@ -4,8 +4,6 @@ import com.testing.model.enums.SignOfTheStars;
 
 import javax.persistence.*;
 
-import com.testing.model.enums.SignOfTheStars;
-
 import java.util.Date;
 
 @Entity
@@ -13,6 +11,7 @@ public class Customer {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="customer_id")
     private Long customerId;
     @Column(name="first_name")
     private String firstName;

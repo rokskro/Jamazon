@@ -32,7 +32,6 @@ public class CartService {
         this.productRepository = productRepository;
     }
 
-    //@PostMapping("/addProductToCart")
     public Cart addProductToCart(AddToCartDto addToCartDto) {
         Customer customer = customerRepository.findById(addToCartDto.getCustomerId())
                 .orElseThrow(() -> new EntityNotFoundException("Customer not found"));
