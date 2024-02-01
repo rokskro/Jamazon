@@ -13,12 +13,22 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
     private int quantity;
+<<<<<<< Updated upstream
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+=======
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "productId")
+>>>>>>> Stashed changes
     private Product product;
 
 

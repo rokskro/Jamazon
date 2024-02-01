@@ -14,7 +14,7 @@ public class Orders {
     @Column(name = "ordersId")
     private Long ordersId;
 
-@ManyToMany
+@OneToMany
 private List<OrderProduct> orderedProducts = new ArrayList<>();
 
     private Long address;
