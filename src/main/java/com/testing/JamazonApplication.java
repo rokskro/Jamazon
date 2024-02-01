@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JamazonApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JamazonApplication.class, args);	}
+		SpringApplication.run(JamazonApplication.class, args);	
+		}
 
 }
