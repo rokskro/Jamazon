@@ -18,6 +18,10 @@ public class OrderProduct {
     @JoinColumn(name = "product_id")
     private Product product;
 
+
+
+    //price at time of order
+    private double price;
     private int quantity;
 
     public OrderProduct() {
@@ -28,6 +32,7 @@ public class OrderProduct {
         this.orders = orders;
         this.product = product;
         this.quantity = quantity;
+
     }
 
     public Long getOrderProductId() {
@@ -61,4 +66,13 @@ public class OrderProduct {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
 }

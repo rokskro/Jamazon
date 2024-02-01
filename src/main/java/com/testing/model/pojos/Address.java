@@ -1,9 +1,6 @@
 package com.testing.model.pojos;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Address {
@@ -17,6 +14,7 @@ public class Address {
     private String StreetAddress;
     private String City;
     private String PostCode;
+    @Column(name="customer_id")
     private Long Customer;
 
     public Address(){
