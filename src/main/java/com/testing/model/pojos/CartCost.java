@@ -1,4 +1,4 @@
-package com.testing.model.pojos;
+/*package com.testing.model.pojos;
 
 import com.testing.dto.CartDto;
 
@@ -30,4 +30,4 @@ public class CartCost {
         this.totalCost = totalCost;
     }
 
-}
+}*/

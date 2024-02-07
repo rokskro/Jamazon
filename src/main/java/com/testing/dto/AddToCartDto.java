@@ -1,4 +1,4 @@
-package com.testing.dto;
+/*package com.testing.dto;
 
 import com.sun.istack.NotNull;
 import com.testing.model.pojos.Cart;
@@ -18,12 +18,12 @@ public class AddToCartDto {
         this.quantity = quantity;
     }
 
-    /*public AddToCartDto(Cart cart) {
+    public AddToCartDto(Cart cart) {
         this.setCartId(cart.getCartId());
         this.setProductId(cart.getProductId());
         this.setCustomerId(cart.getCustomerId());
         this.setQuantity(cart.getQuantity());
-    }*/
+    }
 
 
 
@@ -50,4 +50,4 @@ public class AddToCartDto {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-}
+}*/

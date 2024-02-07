@@ -3,7 +3,7 @@ package com.testing.service;
 import com.testing.model.enums.ProductCategory;
 import com.testing.model.pojos.*;
 import com.testing.repo.CustomerRepository;
-import com.testing.repo.ProductRepository;
+//import com.testing.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +16,8 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepo;
 
-    @Autowired
-    private ProductRepository productRepo;
+    //@Autowired
+  //  private ProductRepository productRepo;
 
 
 
@@ -57,7 +57,7 @@ public class CustomerService {
      */
 
     //Product methods
-    public List<Product> ViewAll() {
+   /* public List<Product> ViewAll() {
         return productRepo.findAll();
     }
 
@@ -79,5 +79,5 @@ public class CustomerService {
         products.sort(Comparator.comparing(Product::getDescription).reversed());
         return products;
     }
-
+*/
 }

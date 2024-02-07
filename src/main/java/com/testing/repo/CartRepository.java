@@ -1,4 +1,4 @@
-package com.testing.repo;
+/**package com.testing.repo;
 
 
 import com.testing.model.pojos.Cart;
@@ -12,3 +12,4 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
 
     List<Cart> findAllByCustomerId(Long customerId);
 }
+*/

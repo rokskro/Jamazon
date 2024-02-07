@@ -25,7 +25,7 @@ public class Customer {
     @Column(name="password")
     private String password;
     @Column(name="starsign")
-    SignOfTheStars starSign;
+    String starSign;
 
 
     public Customer() {
@@ -42,7 +42,7 @@ public class Customer {
     
     
     
-    public Customer(Long customerId, String firstName, String lastName, String email, String dateOfBirth, String password, SignOfTheStars starSign) {
+    public Customer(Long customerId, String firstName, String lastName, String email, String dateOfBirth, String password, String starSign) {
         super();
         this.customerId = customerId;
         this.firstName = firstName;
@@ -99,10 +99,10 @@ public class Customer {
         this.password = password;
     }
 
-    public SignOfTheStars getStarSign() {
+    public String getStarSign() {
         return starSign;
     }
-    public void setStarSign(SignOfTheStars starSign) {
+    public void setStarSign(String starSign) {
         this.starSign = starSign;
     }
 

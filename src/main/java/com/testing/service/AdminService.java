@@ -1,4 +1,4 @@
-package com.testing.service;
+/**package com.testing.service;
 
 import com.testing.model.enums.OrdersStatus;
 import com.testing.model.pojos.*;
@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 @Service
 public class AdminService {
 
-    @Autowired
-    private ProductRepository productRepo;
+    //@Autowired
+   // private ProductRepository productRepo;
 
     @Autowired
     private OrdersRepository ordersRepo;
@@ -23,7 +23,7 @@ public class AdminService {
     private CustomerRepository customerRepo;
 
     //Product methods
-    public Product addProduct(Product product){
+    /*public Product addProduct(Product product){
         return productRepo.save(product);
     }
 
@@ -95,4 +95,4 @@ public class AdminService {
 
 
 
-}
+}*/

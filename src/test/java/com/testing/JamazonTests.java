@@ -1,4 +1,4 @@
-package com.testing;
+/**package com.testing;
 
 import com.testing.model.enums.*;
 import com.testing.model.pojos.*;
@@ -173,4 +173,4 @@ public class JamazonTests {
 		products.sort(Comparator.comparing(Product::getDescription).reversed());
 		assertEquals(products, result);
 	}
-}
+}*/

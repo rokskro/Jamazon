@@ -1,4 +1,4 @@
-package com.testing.model.pojos;
+/*package com.testing.model.pojos;
 
 import com.testing.dto.AddToCartDto;
 import com.testing.dto.CartDto;
@@ -19,14 +19,14 @@ public class Cart {
     @Column(name = "productId")
     private Long productId;*/
 
-    private int quantity;
+    //private int quantity;
 
    /* @ManyToOne
     @JoinColumn(name = "customer_id")*/
-    private Customer customer;
+    //private Customer customer;
 
     /*@ManyToOne
-    @JoinColumn(name = "product_id")*/
+    @JoinColumn(name = "product_id")
     private Product product;
 
 
@@ -73,4 +73,4 @@ public class Cart {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-}
+}*/

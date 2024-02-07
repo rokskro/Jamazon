@@ -1,4 +1,4 @@
-package com.testing.service;
+/**package com.testing.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,8 +11,8 @@ import com.testing.securityGetDetails.CustomerDetails;
  
 public class CustomerDetailsService implements UserDetailsService {
  
-    @Autowired
-    private CustomerRepository customerRepo;
+   @Autowired
+   private CustomerRepository customerRepo;
      
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -23,5 +23,5 @@ public class CustomerDetailsService implements UserDetailsService {
         return new CustomerDetails(customer);
     }
  
-}
+}*/
 

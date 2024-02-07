@@ -1,4 +1,4 @@
-package com.testing.model.enums;
+/*package com.testing.model.enums;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
@@ -26,5 +26,5 @@ public class SignOfTheStarsConverter implements AttributeConverter<SignOfTheStar
           .findFirst()
           .orElseThrow(IllegalArgumentException::new);
     }
-}
+}*/
 
