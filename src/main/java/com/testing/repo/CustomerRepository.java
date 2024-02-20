@@ -8,6 +8,4 @@ import com.testing.model.pojos.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-	/*@Query("SELECT c FROM Customer c WHERE c.email = ?1 AND c.id != 0")
-    public Customer findByEmail(String email);*/
 }
