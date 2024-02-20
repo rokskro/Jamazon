@@ -20,7 +20,6 @@ public class RegisterCustomerService {
     public String registerCustomer(RegisterCustomerDto registerCustomerDto){
         Customer customer = new ObjectMapper().convertValue(registerCustomerDto, Customer.class);
         
-        //Encoding password so that in database it is hash value is stored, improved security
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(customer.getPassword());
         customer.setPassword(encodedPassword);

@@ -8,6 +8,4 @@ import com.testing.model.pojos.Admin;
 
 @Repository
 public interface AdminRepository extends JpaRepository<Admin, Long> {
-	@Query("SELECT c FROM Customer c WHERE c.email = ?1")
-    public Admin findByAdminCode(String adminCode);
 }
